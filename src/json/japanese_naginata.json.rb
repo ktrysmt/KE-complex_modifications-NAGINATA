@@ -62,6 +62,7 @@ else
   TYKEYMODE = ' '.freeze
 end
 
+VK_NONE = 'vk_none'.freeze
 ALWAYS_LEFT_ARROW = 'left_arrow'.freeze
 ALWAYS_RIGHT_ARROW = 'right_arrow'.freeze
 ALWAYS_UP_ARROW = 'up_arrow'.freeze
@@ -240,6 +241,7 @@ def start_unicodemode()
 end
 
 ROMAN_MAP = {
+  '' => [key(VK_NONE)],
   'あ' => [key('a')],
   'い' => [key('i')],
   'う' => [key('u')],
@@ -608,7 +610,7 @@ def main
           three_keys('v', SEMICOLON,'k','つぃ'),
           three_keys('v', SEMICOLON,'o','つぇ'),
           three_keys('v', SEMICOLON,'n','つぉ'),
-          three_keys('f','l','o','ヴぇ'),
+          three_keys('f','l','o','ヴぇ'), # 出ない
           three_keys('f','l','j','ヴぁ'),
           three_keys('f','l','k','ヴぃ'),
           three_keys('f','l','n','ヴぉ'),
@@ -622,7 +624,7 @@ def main
           three_keys('v','l','n','うぉ'),
           three_keys('v',PERIOD,'j','ふぁ'),
           three_keys('v',PERIOD,'k','ふぃ'),
-          three_keys('v',PERIOD,'o','ふぇ'),
+          three_keys('v',PERIOD,'o','ふぇ'), # 出ない
           three_keys('v',PERIOD,'n','ふぉ'),
           three_keys('v',PERIOD,'p','ふゅ'),
           three_keys('m','r','o','しぇ'),
@@ -765,7 +767,7 @@ def main
           #shift_key('/', ''),
           # ------------------------------
           # 連続シフトシフト(スペースキー)
-          #continuous_shift('q', ''),
+          continuous_shift('q', ''),
           continuous_shift('w', 'ね'),
           continuous_shift('e', 'り'),
           continuous_shift(COMMA, 'む'),
@@ -797,7 +799,7 @@ def main
           #continuous_shift('/', ''),
           # ------------------------------
           # シフトなし(単打)
-          # normal_key('q', 'ヴ'),
+          normal_key('q', ''),
           normal_key('w', 'き'),
           normal_key('e', 'て'),
           normal_key('r', 'し'),

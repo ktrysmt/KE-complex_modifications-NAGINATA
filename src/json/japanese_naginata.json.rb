@@ -78,8 +78,8 @@ COLON = 'quote'.freeze
 SLASH = 'slash'.freeze
 HOME = 'home'.freeze
 ENDKEY = 'end'.freeze
-LEFT_CORNER_BRACKET = 'close_bracket'.freeze #このへんJISで認識されてないキーボードだと変わる
-RIGHT_CORNER_BRACKET = 'backslash'.freeze #このへんJISで認識されてないキーボードだと変わる
+LEFT_CORNER_BRACKET = 'open_bracket'.freeze #このへんJISで認識されてないキーボードだと変わる（US用に変えた
+RIGHT_CORNER_BRACKET = 'close_bracket'.freeze #このへんJISで認識されてないキーボードだと変わる
 YEN = 'international3'.freeze
 PAGEUP = 'page_up'.freeze
 PAGEDOWN = 'page_down'.freeze
@@ -458,17 +458,17 @@ ROMAN_MAP = {
   #編集モード2定義
   '／改' => [key(SLASH),key(ENTER)],
   '：改' => [key(COLON),key(ENTER)],
-  '・改' => [key_with_option(SLASH),key(ENTER)],
+  '・' => [key_with_option(SLASH)],
   '○改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('7'),key(JPN)],
   '行頭空白改' => [key_with_control('a'),key(SPACEBAR),key(ENTER),key_with_control('e')],
 
-  '【改' => [key_with_option('8'),key(ENTER)],
+  '【改' => [key_with_option('9'),key(ENTER)],
   '〈改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('8'),key(JPN)],
   '！改' => [key_with_shift('1'),key(ENTER)],
   '？改' => [key_with_shift(SLASH),key(ENTER)],
   '行頭空白三改' => [key_with_control('a'),key(SPACEBAR),key(SPACEBAR),key(SPACEBAR),key(ENTER),key_with_control('e')],
 
-  '】改' => [key_with_option('9'),key(ENTER)],
+  '】改' => [key_with_option('0'),key(ENTER)],
   '〉改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('9'),key(JPN)],
   '……改' => [key_with_option(SEMICOLON),key_with_option(SEMICOLON),key(ENTER)],
   '──改' => [key_with_option_shift(HYPHEN),key_with_option_shift(HYPHEN),key(ENTER)],
@@ -483,13 +483,13 @@ ROMAN_MAP = {
   '「改' => [key(LEFT_CORNER_BRACKET),key(ENTER),],
   '『改' => [key_with_shift(LEFT_CORNER_BRACKET),key(ENTER)],
   '《改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('a'),key(JPN)],
-  '（改' => [key_with_shift('8'),key(ENTER)],
+  '（改' => [key_with_shift('9'),key(ENTER)],
 
   '」改改' => [key(RIGHT_CORNER_BRACKET),key(ENTER),key(ENTER)],
   '」改' => [key(RIGHT_CORNER_BRACKET),key(ENTER)],
   '』改' => [key_with_shift(RIGHT_CORNER_BRACKET),key(ENTER)],
   '》改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('b'),key(JPN)],
-  '）改' => [key_with_shift('9'),key(ENTER)],
+  '）改' => [key_with_shift('0'),key(ENTER)],
 
 }.freeze
 ########################################
@@ -497,28 +497,28 @@ ROMAN_MAP = {
 def main
   now = Time.now.to_i
   puts JSON.pretty_generate(
-    'title' => 'Japanese NAGINATA STYLE (v12)',
+    'title' => 'Japanese NAGINATA STYLE (v13)',
     'rules' => [
       {
-        'description' => "Japanese NAGINATA STYLE (v12) #{MODE}#{TYKEYMODE}Build #{now} ",
+        'description' => "Japanese NAGINATA STYLE (v13) #{MODE}#{TYKEYMODE}Build #{now} ",
         'manipulators' => [
           # 同時打鍵数の多いものから書く
           shiftkeydef(),#連続シフト用定義
           #編集モード1定義
           editmode_one_left('q','文末'),
-          editmode_one_left('w','文頭'),
+          editmode_one_left('w','縦棒改'),
           # E,Rは未使用
-          editmode_one_left('t','十字目'),
-          editmode_one_left('a','リドゥ'),#shift + command + z
-          editmode_one_left('s','保存'),
-          editmode_one_left('d','頁下'),
-          editmode_one_left('f','頁上'),
-          editmode_one_left('g','二十字目'),
-          editmode_one_left('z','アンドゥ'),
-          editmode_one_left('x','カット'),
-          editmode_one_left('c','コピー'),
-          editmode_one_left('v','ペースト'),
-          editmode_one_left('b','三十字目'),
+          editmode_one_left('t','・'),
+          editmode_one_left('a','……改'),
+          editmode_one_left('s','《改'),
+          editmode_one_left('d','？改'),
+          editmode_one_left('f','「改'),
+          editmode_one_left('g','（改'),
+          editmode_one_left('z','──改'),
+          editmode_one_left('x','》改'),
+          editmode_one_left('c','！改'),
+          editmode_one_left('v','」改'),
+          editmode_one_left('b','）改'),
           editmode_one_right('y','行頭'),
           editmode_one_right('u','行末削除'),
           editmode_one_right('i','再変換'),
@@ -543,17 +543,17 @@ def main
           editmode_two_left('t','行頭空白改'),
           editmode_two_left('a','【改'),
           editmode_two_left('s','〈改'),
-          editmode_two_left('d','！改'),
+          editmode_two_left('d','『改'),
           editmode_two_left('f','？改'),
           editmode_two_left('g','行頭空白三改'),
           editmode_two_left('z','】改'),
           editmode_two_left('x','〉改'),
-          editmode_two_left('c','……改'),
+          editmode_two_left('c','』改'),
           editmode_two_left('v','──改'),
           editmode_two_left('b','三空白'),
           editmode_two_right('y','行頭'),
           editmode_two_right('u','カット'),
-          editmode_two_right('i','ペースト'),
+          editmode_two_right('i','・'),
           editmode_two_right('o','リドゥ'),
           editmode_two_right('p','アンドゥ'),
           three_keys('v','c','p','アンドゥ'),

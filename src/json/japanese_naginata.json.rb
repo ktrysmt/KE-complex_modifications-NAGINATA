@@ -507,7 +507,8 @@ def main
           #編集モード1定義
           editmode_one_left('q','文末'),
           editmode_one_left('w','縦棒改'),
-          # E,Rは未使用
+          editmode_one_left('e','縦棒改'),
+          editmode_one_left('r','保存'),
           editmode_one_left('t','・'),
           editmode_one_left('a','……改'),
           editmode_one_left('s','《改'),
@@ -553,11 +554,11 @@ def main
           editmode_two_left('b','三空白'),
           editmode_two_right('y','行頭'),
           editmode_two_right('u','カット'),
-          editmode_two_right('i','・'),
+          editmode_two_right('i','ペースト'),
           editmode_two_right('o','リドゥ'),
           editmode_two_right('p','アンドゥ'),
           three_keys('v','c','p','アンドゥ'),
-          editmode_two_right('h','」改「'),
+          editmode_two_right('h','コピー'),
           editmode_two_right('j','「改'),
           editmode_two_right('k','『改'),
           # editmode_two_right('l','《改'),

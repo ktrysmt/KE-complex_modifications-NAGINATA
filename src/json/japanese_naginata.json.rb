@@ -602,8 +602,8 @@ def main
           three_keys('x','m','h','ぴゃ'),
           three_keys('x','m','p','ぴゅ'),
           three_keys('e','j','p','でゅ'),
-          three_keys('r','j','p','じぇ'),
-          three_keys('g','j','p','ぢぇ'),
+          three_keys('r','j','o','じぇ'),
+          three_keys('g','j','o','ぢぇ'),
           three_keys('e','j','k','でぃ'),
           three_keys('d','j','l','どぅ'),
           # 外来音

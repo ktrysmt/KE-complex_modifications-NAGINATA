@@ -27,7 +27,7 @@ Macでの動作は[Karabiner-Elements](https://pqrs.org/osx/karabiner/)が必要
 
 5. InputMethodの入力方式はローマ字入力に設定します。
 
-6. 薙刀式の使い方はオリジナル版の詳しいガイドブックをご参考ください。[薙刀式v11完成版マニュアル.pdf](http://oookaworks.up.seesaa.net/image/E89699E58880E5BC8Fv11E5AE8CE68890E78988E3839EE3838BE383A5E382A2E383AB.pdf)
+6. 薙刀式の使い方はオリジナル版の詳しいガイドブックをご参考ください。[薙刀式v13完成版マニュアル.pdf](https://oookaworks.up.seesaa.net/image/E89699E58880E5BC8Fv13E5AE8CE68890E78988E3839EE3838BE383A5E382A2E383AB.pdf)
 
 7. (横書き版との併用は下のカスタマイズの項目に記載しています)
 

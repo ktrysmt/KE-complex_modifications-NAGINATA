@@ -2,7 +2,7 @@
   "title": "Japanese NAGINATA STYLE (v13)",
   "rules": [
     {
-      "description": "Japanese NAGINATA STYLE (v13) Horizontal Build 1619485716 ",
+      "description": "Japanese NAGINATA STYLE (v13) Horizontal Build 1620739945 ",
       "manipulators": [
         {
           "type": "basic",
@@ -186,14 +186,15 @@
           },
           "to": [
             {
-              "key_code": "international3",
-              "modifiers": [
-                "left_shift"
-              ],
+              "key_code": "d",
               "repeat": false
             },
             {
-              "key_code": "return_or_enter",
+              "key_code": "h",
+              "repeat": false
+            },
+            {
+              "key_code": "i",
               "repeat": false
             }
           ],

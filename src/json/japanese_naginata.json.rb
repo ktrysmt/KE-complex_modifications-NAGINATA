@@ -507,7 +507,7 @@ def main
           #編集モード1定義
           editmode_one_left('q','文末'),
           editmode_one_left('w','縦棒改'),
-          editmode_one_left('e','縦棒改'),
+          editmode_one_left('e','でぃ'),
           editmode_one_left('r','保存'),
           editmode_one_left('t','・'),
           editmode_one_left('a','……改'),

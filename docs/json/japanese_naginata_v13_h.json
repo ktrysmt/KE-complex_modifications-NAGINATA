@@ -2,7 +2,7 @@
   "title": "Japanese NAGINATA STYLE (v13)",
   "rules": [
     {
-      "description": "Japanese NAGINATA STYLE (v13) Horizontal Build 1620739945 ",
+      "description": "Japanese NAGINATA STYLE (v13) Horizontal Build 1627347069 ",
       "manipulators": [
         {
           "type": "basic",
@@ -400,45 +400,7 @@
               }
             ]
           },
-          "to": [
-            {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.UnicodeHexInput"
-              }
-            },
-            {
-              "key_code": "3",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "0",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "0",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "a",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "lang1",
-              "repeat": false
-            }
-          ],
+          "to": null,
           "conditions": [
             {
               "type": "input_source_if",
@@ -702,45 +664,7 @@
               }
             ]
           },
-          "to": [
-            {
-              "select_input_source": {
-                "input_source_id": "com.apple.keylayout.UnicodeHexInput"
-              }
-            },
-            {
-              "key_code": "3",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "0",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "0",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "b",
-              "modifiers": [
-                "left_alt"
-              ],
-              "repeat": false
-            },
-            {
-              "key_code": "lang1",
-              "repeat": false
-            }
-          ],
+          "to": null,
           "conditions": [
             {
               "type": "input_source_if",
@@ -10808,7 +10732,7 @@
               "repeat": false
             },
             {
-              "key_code": "e",
+              "key_code": "u",
               "repeat": false
             }
           ],
@@ -10916,11 +10840,11 @@
           },
           "to": [
             {
-              "key_code": "m",
+              "key_code": "n",
               "repeat": false
             },
             {
-              "key_code": "u",
+              "key_code": "e",
               "repeat": false
             }
           ],
@@ -11860,7 +11784,7 @@
           },
           "to": [
             {
-              "key_code": "n",
+              "key_code": "m",
               "repeat": false
             },
             {
@@ -12285,7 +12209,7 @@
               "repeat": false
             },
             {
-              "key_code": "e",
+              "key_code": "u",
               "repeat": false
             }
           ],
@@ -12373,11 +12297,11 @@
           },
           "to": [
             {
-              "key_code": "m",
+              "key_code": "n",
               "repeat": false
             },
             {
-              "key_code": "u",
+              "key_code": "e",
               "repeat": false
             }
           ],
@@ -13147,7 +13071,7 @@
           },
           "to": [
             {
-              "key_code": "n",
+              "key_code": "m",
               "repeat": false
             },
             {

@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #
 # You can generate json by executing the following command on Terminal.
-# $ ruby ./japanese_naginata.json.rb v > ../../docs/json/japanese_naginata.json
+# $ ruby ./japanese_naginata.json.rb v > ../../docs/json/.json
 #
 # Horizontal Version
 # $ ruby ./japanese_naginata.json.rb h > ../../docs/json/japanese_naginata_h.json
@@ -424,7 +424,21 @@ ROMAN_MAP = {
   '英' => [key(ENG)],
   '仮' => [key(JPN)],
   '。改' => [key(PERIOD),key(ENTER)],
-  #編集モード1定義
+
+  #編集モード（括弧）定義
+  '『』' => [key('k'),key('a'),key('g'),key('i'),key_with_shift(SEMICOLON),key(SPACEBAR),key(ENTER),key(UP_ARROW)],
+  '＋『』' => [key_with_command('x'),key('k'),key('a'),key('g'),key('i'),key_with_shift(SEMICOLON),key(SPACEBAR),key(ENTER),key(UP_ARROW),key_with_command('v')],
+  '（）' => [key_with_shift('9'),key_with_shift('0'),key(ENTER),key(UP_ARROW)],
+  '＋（）' => [key_with_command('x'),key_with_shift('9'),key_with_shift('0'),key(ENTER),key(UP_ARROW),key_with_command('v')],
+  '「」' => [key(LEFT_CORNER_BRACKET),key(RIGHT_CORNER_BRACKET),key(ENTER),key(UP_ARROW)],
+  '＋「」' => [key_with_command('x'),key(LEFT_CORNER_BRACKET),key(ENTER),key_with_command('v'),key(RIGHT_CORNER_BRACKET),key(ENTER),],
+
+  #編集モード定義
+  '改右' => [key(ENTER),key(DOWN_ARROW)],
+  '！改' => [key_with_shift('1'),key(ENTER)],
+  '？改' => [key_with_shift(SLASH),key(ENTER)],
+  '行末削除' => [key_with_control('k')], #カーソル位置から行末まで削除
+
   '文末' => [key_with_command(LEFT_ARROW)],
   '文頭' => [key_with_command(RIGHT_ARROW)],
   '十字目' => [key_with_control('a'),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW)],
@@ -432,15 +446,12 @@ ROMAN_MAP = {
   '保存' => [key_with_command('s')],
   '頁下' => [key(PAGEDOWN)],
   '頁上' => [key(PAGEUP)],
-  '二十字目' => [key_with_control('a'),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW)],
   'アンドゥ' => [key_with_command('z')],
   'カット' => [key_with_command('x')],
   'コピー' => [key_with_command('c')],
   'ペースト' => [key_with_command('v')],
-  '三十字目' => [key_with_control('a'),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW),key(DOWN_ARROW)],
-
+ 
   '行頭' => [key_with_control('a')],
-  '行末削除' => [key_with_control('k')], #カーソル位置から行末まで削除
   '再変換' => [key_with_control_shift('r')],
   '削除' => [key_with_control('d')],
   '入力撤回' => [key(ESC),key(ESC)],
@@ -458,15 +469,13 @@ ROMAN_MAP = {
   #編集モード2定義
   '／改' => [key(SLASH),key(ENTER)],
   '：改' => [key(COLON),key(ENTER)],
-  '・' => [key_with_option(SLASH)],
+  '・' => [key('n'),key('a'),key('k'),key('a'),key_with_shift(SEMICOLON),key(SPACEBAR),key(ENTER)],
   '○改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('7'),key(JPN)],
   '行頭空白改' => [key_with_control('a'),key(SPACEBAR),key(ENTER),key_with_control('e')],
 
   '【改' => [key_with_option('9'),key(ENTER)],
   '〈改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('8'),key(JPN)],
-  '！改' => [key_with_shift('1'),key(ENTER)],
-  '？改' => [key_with_shift(SLASH),key(ENTER)],
-  '行頭空白三改' => [key_with_control('a'),key(SPACEBAR),key(SPACEBAR),key(SPACEBAR),key(ENTER),key_with_control('e')],
+   '行頭空白三改' => [key_with_control('a'),key(SPACEBAR),key(SPACEBAR),key(SPACEBAR),key(ENTER),key_with_control('e')],
 
   '】改' => [key_with_option('0'),key(ENTER)],
   '〉改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('9'),key(JPN)],
@@ -481,7 +490,8 @@ ROMAN_MAP = {
   'ルビ' => [key_with_shift(YEN),key(ENTER),key_with_control('e'),start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('a'),key(JPN),start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('b'),key(JPN),key(UP_ARROW)],
   '」改「' => [key(RIGHT_CORNER_BRACKET),key(ENTER),key(ENTER),key(LEFT_CORNER_BRACKET),key(ENTER)],
   '「改' => [key(LEFT_CORNER_BRACKET),key(ENTER),],
-  '『改' => [key_with_shift(LEFT_CORNER_BRACKET),key(ENTER)],
+  '「' => [key(LEFT_CORNER_BRACKET),key(SPACEBAR),],
+    '『改' => [key_with_shift(LEFT_CORNER_BRACKET),key(ENTER)],
   '《改' => [start_unicodemode(),key_with_option('3'),key_with_option('0'),key_with_option('0'),key_with_option('a'),key(JPN)],
   '（改' => [key_with_shift('9'),key(ENTER)],
 
@@ -497,28 +507,28 @@ ROMAN_MAP = {
 def main
   now = Time.now.to_i
   puts JSON.pretty_generate(
-    'title' => 'Japanese NAGINATA STYLE (v13)',
+    'title' => 'Japanese NAGINATA STYLE (v14)',
     'rules' => [
       {
-        'description' => "Japanese NAGINATA STYLE (v13) #{MODE}#{TYKEYMODE}Build #{now} ",
+        'description' => "Japanese NAGINATA STYLE (v14) #{MODE}#{TYKEYMODE}Build #{now} ",
         'manipulators' => [
           # 同時打鍵数の多いものから書く
           shiftkeydef(),#連続シフト用定義
           #編集モード1定義
           editmode_one_left('q','文末'),
-          editmode_one_left('w','縦棒改'),
+          editmode_one_left('w','『』'),
           editmode_one_left('e','でぃ'),
           editmode_one_left('r','保存'),
           editmode_one_left('t','・'),
           editmode_one_left('a','……改'),
-          editmode_one_left('s','『改'),
+          editmode_one_left('s','（）'),
           editmode_one_left('d','？改'),
-          editmode_one_left('f','「改'),
-          editmode_one_left('g','（改'),
+          editmode_one_left('f','「」'),
+          editmode_one_left('g','改右'),
           editmode_one_left('z','──改'),
           editmode_one_left('x','』改'),
           editmode_one_left('c','！改'),
-          editmode_one_left('v','」改'),
+          editmode_one_left('v','改右'),
           editmode_one_left('b','）改'),
           editmode_one_right('y','行頭'),
           editmode_one_right('u','行末削除'),
@@ -537,15 +547,15 @@ def main
           editmode_one_right(SLASH,'ひらがなに'),
           #編集モード2定義
           editmode_two_left('q','／改'),
-          editmode_two_left('w','：改'),
+          editmode_two_left('w','＋『』'),
           editmode_two_left('e','・改'),
           #editmode_two_left('r','○改'),
           three_keys('m',COMMA,'r','○改'),
           editmode_two_left('t','行頭空白改'),
           editmode_two_left('a','【改'),
-          editmode_two_left('s','〈改'),
+          editmode_two_left('s','＋（）'),
           editmode_two_left('d','『改'),
-          editmode_two_left('f','？改'),
+          editmode_two_left('f','＋「」'),
           editmode_two_left('g','行頭空白三改'),
           editmode_two_left('z','】改'),
           editmode_two_left('x','〉改'),
@@ -559,7 +569,7 @@ def main
           editmode_two_right('p','アンドゥ'),
           three_keys('v','c','p','アンドゥ'),
           editmode_two_right('h','コピー'),
-          editmode_two_right('j','「改'),
+          editmode_two_right('j','「'),
           editmode_two_right('k','『改'),
           # editmode_two_right('l','《改'),
           three_keys('v','c','l','《改'),

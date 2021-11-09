@@ -1,8 +1,8 @@
 {
-  "title": "Japanese NAGINATA STYLE (v13)",
+  "title": "Japanese NAGINATA STYLE (v14)",
   "rules": [
     {
-      "description": "Japanese NAGINATA STYLE (v13) Default(Vertical) Build 1634105273 ",
+      "description": "Japanese NAGINATA STYLE (v14) Default(Vertical) Build 1636350391 ",
       "manipulators": [
         {
           "type": "basic",
@@ -132,7 +132,23 @@
           },
           "to": [
             {
-              "key_code": "international3",
+              "key_code": "k",
+              "repeat": false
+            },
+            {
+              "key_code": "a",
+              "repeat": false
+            },
+            {
+              "key_code": "g",
+              "repeat": false
+            },
+            {
+              "key_code": "i",
+              "repeat": false
+            },
+            {
+              "key_code": "semicolon",
               "modifiers": [
                 "left_shift"
               ],
@@ -140,6 +156,13 @@
             },
             {
               "key_code": "return_or_enter",
+              "modifiers": [
+                "left_shift"
+              ],
+              "repeat": false
+            },
+            {
+              "key_code": "down_arrow",
               "repeat": false
             }
           ],
@@ -502,7 +525,7 @@
               "repeat": false
             },
             {
-              "key_code": "return_or_enter",
+              "key_code": "spacebar",
               "repeat": false
             }
           ],
@@ -2884,7 +2907,7 @@
               "repeat": false
             },
             {
-              "key_code": "return_or_enter",
+              "key_code": "spacebar",
               "repeat": false
             }
           ],
